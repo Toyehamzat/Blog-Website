@@ -1,3 +1,5 @@
+import Post from "./components/Post";
+
 export default function Home() {
   return (
     <main className="px-6 mx-auto">
@@ -6,6 +8,7 @@ export default function Home() {
         <span className="whitespace-nowrap">
           I'm <span className="font-bold">Toye</span>
         </span>
+        <Post />
       </p>
     </main>
   );
