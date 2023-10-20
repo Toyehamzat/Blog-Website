@@ -2,9 +2,15 @@ import GetFormattedDate from "@/lib/getFormattedDtate";
 import { GetSortedPostsData, GetPostData } from "@/lib/post";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { title } from "process";
 
-export function GenerateMetaData({ params }: { params: { PostsId: string } }) {
+export function generateStaticParams() {
+  const posts = GetSortedPostsData();
+  return posts.map((post) => ({
+    PostsId: post.id,
+  }));
+}
+
+export function generateMetaData({ params }: { params: { PostsId: string } }) {
   const posts = GetSortedPostsData();
   const { PostsId } = params;
 
